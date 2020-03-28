@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=100, initial-scale=1.0">
+    <title>XML</title>
+</head>
+<body>
+    <p id="XML_Example"></p>
+
+<script>
+    var XML_Parser, XML_Document;
+
+    var President = "<president>" +
+    "<name>George Washington</name>" +
+    "<term>1789-1797</term>" +
+    "<party>Unaffiliated</party>" +
+    "<vicepres>John Adams</vicepres>" +
+    "</president>";
+
+    XML_Parser = new DOMParser();
+
+    XML_Document = XML_Parser.parseFromString(President,"text/xml");
+
+    document.getElementById("XML_Example").innerHTML = XML_Document.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+</script>
+</body>
+</html>
